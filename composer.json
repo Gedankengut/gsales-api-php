@@ -1,0 +1,37 @@
+{
+    "name": "gedankengut/gsales-api-php",
+    "description": "GSALES 3 REST PHP Client Library using PSR-17 and PSR-18",
+    "keywords": ["gsales", "api", "client"],
+    "homepage": "https://gsales.de",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gökhan Sirin",
+            "email": "g.sirin@gedankengut.de"
+        }
+    ],
+    "require": {
+        "php": "^8",
+        "php-http/discovery": "^1.12",
+        "psr/http-client": "^1.0",
+        "psr/http-client-implementation": "^1.0",
+        "psr/http-factory": "^1.0",
+        "php-http/client-common": "^2.7"
+    },
+    "require-dev": {
+        "laminas/laminas-diactoros": "^2.4",
+        "php-http/curl-client": "^2.1",
+        "php-http/mock-client": "^1.4",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gsales\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gsales\\Tests\\": "tests"
+        }
+    }
+}
