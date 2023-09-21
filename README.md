@@ -34,8 +34,7 @@ $clientBuilder = new \Gsales\ClientBuilder();
 $clientBuilder->addPlugin(new \Http\Client\Common\Plugin\HeaderDefaultsPlugin(['Authorization' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']));
 $clientOptions = new \Gsales\Options(['client_builder' => $clientBuilder,'api_uri' => 'https://mydomain.de/gsales3/api']);
 $gsales = new \Gsales\Client($clientOptions);
-
-var_dump($gsales->articles()->get());
+$gsales->articles()->get()
 ```
 
 For more examples how to use the Client Library in detail see `examples/gsales-client.php` file.
