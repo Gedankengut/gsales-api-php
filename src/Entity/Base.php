@@ -40,6 +40,9 @@ class Base {
 	/** Country of the customer */
 	public ?string $customer_country = null;
 
+	/** VAT ID of the customer */
+	public ?string $customer_vatid = null;
+
 	/** Print title, firstname, lastname in the address field */
 	public ?int $print_contactperson = 0;
 
@@ -111,6 +114,21 @@ class Base {
 
 	/** Custom text 5 */
 	public ?string $custom5 = null;
+
+	/** Custom text 6 */
+	public ?string $custom6 = null;
+
+	/** Custom text 7 */
+	public ?string $custom7 = null;
+
+	/** Custom text 8 */
+	public ?string $custom8 = null;
+
+	/** Custom text 9 */
+	public ?string $custom9 = null;
+
+	/** Custom text 10 */
+	public ?string $custom10 = null;
 
 	/** Tags associated to this record */
 	public ?string $tags = null;
@@ -725,6 +743,86 @@ class Base {
 	}
 
 	/**
+	 * @return mixed
+	 */
+	public function getCustom6()
+	{
+		return $this->custom6;
+	}
+
+	/**
+	 * @param mixed $custom6
+	 */
+	public function setCustom6($custom6): void
+	{
+		$this->custom6 = $custom6;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom7()
+	{
+		return $this->custom7;
+	}
+
+	/**
+	 * @param mixed $custom7
+	 */
+	public function setCustom7($custom7): void
+	{
+		$this->custom7 = $custom7;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom8()
+	{
+		return $this->custom8;
+	}
+
+	/**
+	 * @param mixed $custom8
+	 */
+	public function setCustom8($custom8): void
+	{
+		$this->custom8 = $custom8;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom9()
+	{
+		return $this->custom9;
+	}
+
+	/**
+	 * @param mixed $custom9
+	 */
+	public function setCustom9($custom9): void
+	{
+		$this->custom9 = $custom9;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom10()
+	{
+		return $this->custom10;
+	}
+
+	/**
+	 * @param mixed $custom10
+	 */
+	public function setCustom10($custom10): void
+	{
+		$this->custom10 = $custom10;
+	}
+
+	/**
 	 * @return string|null
 	 */
 	public function getTags(): ?string
@@ -770,6 +868,22 @@ class Base {
 	public function setHistory(?array $history): void
 	{
 		$this->history = $history;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getCustomerVatid(): ?string
+	{
+		return $this->customer_vatid;
+	}
+
+	/**
+	 * @param string|null $customer_vatid
+	 */
+	public function setCustomerVatid(?string $customer_vatid): void
+	{
+		$this->customer_vatid = $customer_vatid;
 	}
 
 }
