@@ -34,6 +34,7 @@ class Customer {
 	public ?string $country = null;
 	public ?string $taxnumber = null;
 	public int $salestaxfree = 0;
+	public int $salestaxfree_reason = 0;
 	public ?string $phone = null;
 	public ?string $cellular = null;
 	public ?string $fax = null;
@@ -167,6 +168,18 @@ class Customer {
 	public ?string $custom4 = null;
 
 	public ?string $custom5 = null;
+
+	public ?string $custom6 = null;
+
+	public ?string $custom7 = null;
+
+	public ?string $custom8 = null;
+
+	public ?string $custom9 = null;
+
+	public ?string $custom10 = null;
+
+	public ?string $vatid = null;
 
 	public int $glob_dunning_term_info = 1;
 
@@ -1861,6 +1874,87 @@ class Customer {
 	/**
 	 * @return mixed
 	 */
+	public function getCustom6()
+	{
+		return $this->custom6;
+	}
+
+	/**
+	 * @param mixed $custom6
+	 */
+	public function setCustom6($custom6): void
+	{
+		$this->custom6 = $custom6;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom7()
+	{
+		return $this->custom7;
+	}
+
+	/**
+	 * @param mixed $custom7
+	 */
+	public function setCustom7($custom7): void
+	{
+		$this->custom7 = $custom7;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom8()
+	{
+		return $this->custom8;
+	}
+
+	/**
+	 * @param mixed $custom8
+	 */
+	public function setCustom8($custom8): void
+	{
+		$this->custom8 = $custom8;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom9()
+	{
+		return $this->custom9;
+	}
+
+	/**
+	 * @param mixed $custom9
+	 */
+	public function setCustom9($custom9): void
+	{
+		$this->custom9 = $custom9;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getCustom10()
+	{
+		return $this->custom10;
+	}
+
+	/**
+	 * @param mixed $custom10
+	 */
+	public function setCustom10($custom10): void
+	{
+		$this->custom10 = $custom10;
+	}
+
+
+	/**
+	 * @return mixed
+	 */
 	public function getGlobDunningTermInfo()
 	{
 		return $this->glob_dunning_term_info;
@@ -2449,6 +2543,38 @@ class Customer {
 	public function setHistory(?array $history): void
 	{
 		$this->history = $history;
+	}
+
+	/**
+	 * @return integer|null
+	 */
+	public function getSalestaxfreeReason(): ?int
+	{
+		return $this->salestaxfree_reason;
+	}
+
+	/**
+	 * @param int $salestaxfree_reason
+	 */
+	public function setSalestaxfreeReason(int $salestaxfree_reason): void
+	{
+		$this->salestaxfree_reason = $salestaxfree_reason;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getVatid(): ?string
+	{
+		return $this->vatid;
+	}
+
+	/**
+	 * @param string|null $vatid
+	 */
+	public function setVatid(?string $vatid): void
+	{
+		$this->vatid = $vatid;
 	}
 
 }
