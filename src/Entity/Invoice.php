@@ -19,6 +19,9 @@ class Invoice extends Base {
 	/** zugferd leitweg id */
 	public $i_zugferd_leitwegid;
 
+	/** grund wieso eine position eine umsatzsteuer berechnet wird */
+	public int $salestaxfree_reason = 0;
+
 	/**
 	 * @return string
 	 */
@@ -91,6 +94,22 @@ class Invoice extends Base {
 	public function setIZugferdLeitwegid($i_zugferd_leitwegid): void
 	{
 		$this->i_zugferd_leitwegid = $i_zugferd_leitwegid;
+	}
+
+	/**
+	 * @return integer|null
+	 */
+	public function getSalestaxfreeReason(): ?int
+	{
+		return $this->salestaxfree_reason;
+	}
+
+	/**
+	 * @param int $salestaxfree_reason
+	 */
+	public function setSalestaxfreeReason(int $salestaxfree_reason): void
+	{
+		$this->salestaxfree_reason = $salestaxfree_reason;
 	}
 
 }
