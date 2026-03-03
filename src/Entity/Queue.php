@@ -376,12 +376,11 @@ class Queue {
 	public function calcAndSetInfoFields()
 	{
 		$total = $this->getQuantity() * $this->getPrice();
-		$objCalc = new gs_calc();
-		$valueDiscount = $objCalc->getValueOfPercent($total, $this->getDiscount());
+		$valueDiscount = $this->getValueOfPercent($total, $this->getDiscount());
 		$total -= $valueDiscount;
-		$valueTax = $objCalc->getValueOfPercent($total, $this->getTax());
+		$valueTax = $this->getValueOfPercent($total, $this->getTax());
 		$total_net = $total;
-		$total += $objCalc->kfmRound($valueTax,3);
+		$total += $this->kfmRound($valueTax,3);
 		$this->setInfoPriceTotal($total);
 		$this->setInfoPriceNet($total_net);
 	}
@@ -401,5 +400,47 @@ class Queue {
 	{
 		$this->tags = $tags;
 	}
+
+	private function getValueOfPercent($floatTotal, $floatPercent)
+	{
+		if ($floatPercent == 100) return $floatTotal;
+		if ($floatPercent == 0) return 0;
+		return ($floatTotal/100)*$floatPercent;
+	}
+
+	private function kfmRound($floatValue, $intStelle=3)
+	{
+		$booIsNegative = false;
+
+		if ($floatValue < 0){
+			$booIsNegative = true;
+			$floatValue = $floatValue * -1;
+		}
+
+		if (false != stristr((string)$floatValue,'E'))  $floatValue = round($floatValue,10);
+
+		$stringValue = (string) $floatValue;
+		$partStringValue = explode('.',$stringValue);
+
+		if (count($partStringValue)==1){
+			$intValue = (int) round($floatValue);
+			if ($booIsNegative) $intValue = $intValue * -1;
+			return (int) $intValue;
+		}
+
+		$strIntegerValue = $partStringValue[0];
+		$strDecimalPlaces = substr($partStringValue[1],0,$intStelle-1);
+		$strDecisionMaker = substr($partStringValue[1],$intStelle-1,1);
+		$intDecisionMaker = (int) $strDecisionMaker;
+
+		$strCuttedValue =  $strIntegerValue.'.'.$strDecimalPlaces;
+		$floatCuttedValue = (float) $strCuttedValue;
+
+		if ($intDecisionMaker > 4) $floatCuttedValue += (1/(1*pow(10,$intStelle-1)));
+		if ($booIsNegative) $floatCuttedValue = $floatCuttedValue * -1;
+
+		return $floatCuttedValue;
+	}
+
 
 }
